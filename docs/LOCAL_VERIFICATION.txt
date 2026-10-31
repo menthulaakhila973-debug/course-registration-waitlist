@@ -1,0 +1,5 @@
+Verification performed in the artifact-generation environment:
+
+- `javac --release 17 -d /tmp/course-registration-classes $(find src/main/java -name '*.java')` — passed (all production Java sources compiled).
+- `java -cp /tmp/course-registration-classes com.schwab.registration.Application` — passed; the demo enrolled two learners, waitlisted a third, dropped one enrolled learner, and promoted the waitlisted learner. Final enrolled count was 2 and waitlist was empty.
+- `mvn clean test` — NOT RUN because Maven is not installed in the artifact-generation environment. Run this command in an environment with Maven to execute the JUnit 5 suite. Do not claim the automated tests passed until that command succeeds.
